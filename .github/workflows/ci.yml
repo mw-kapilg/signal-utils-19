@@ -20,6 +20,11 @@ jobs:
           release: latest
           cache: true
 
+      - name: Build MEX files
+        uses: matlab-actions/run-command@v3
+        with:
+          command: mex src/sumAbove.c -outdir src
+
       - name: Run tests
         uses: matlab-actions/run-tests@v3
         with:
